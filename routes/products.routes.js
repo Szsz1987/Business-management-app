@@ -4,7 +4,7 @@ const Product = require('../models/product.model');
 
 router.get('/products', async (req, res) => {
   try {
-    res.json(await Product.find();
+    res.json(await Product.find());
   }
   catch(err) {
     res.status(500).json({ message: err });
@@ -54,7 +54,7 @@ router.put('/products/:id', async (req, res) => {
       dep.name = name;
       dep.client = client;
       await dep.save();
-      res.json({ message: 'Ok' });
+      res.json(dep);
     }
     else res.status(404).json({ message: 'Not found...'});
   }

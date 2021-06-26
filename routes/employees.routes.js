@@ -26,7 +26,7 @@ router.get('/employees/random', async (req, res) => {
 
 router.get('/employees/:id', async (req, res) => {
   try {
-    const dep = await Employe.findById(req.params.id);
+    const dep = await Employee.findById(req.params.id);
     if(!dep) res.status(404).json({ message: 'Not found' });
     else res.json(dep);
   }
@@ -55,7 +55,7 @@ router.put('/employees/:id', async (req, res) => {
       dep.lastName = lastName;
       dep.department = department;
       await dep.save();
-      res.json({ message: 'OK' });
+      res.json(dep);
     }
     else res.status(404).json({ message: 'Not found...' });
   }
