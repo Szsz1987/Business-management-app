@@ -41,7 +41,6 @@ describe('Department', () => {
   });
 
   describe('Creating data', () => {
-
     it('should insert new document with "inserOne" method', async () => {
       const department = new Department({ name: 'Department #1' });
       await department.save();
@@ -54,7 +53,6 @@ describe('Department', () => {
   });
 
   describe('Updating data', () => {
-
     beforeEach(async () => {
       const testDepOne = new Department({ name: 'Department #1' });
       await testDepOne.save();

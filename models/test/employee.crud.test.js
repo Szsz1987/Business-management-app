@@ -13,11 +13,11 @@ describe('Employee', () => {
       const uri = await fakeDB.getUri();
       await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     } catch(err) {
+      console.log(err);
     }
   });
 
   describe('Reading data', () => {
-
     before(async () => {
       const testEmpOne = new Employee({ firstName: 'FirstName #1', lastName: 'LastName #1', department: 'Department #1' });
       await testEmpOne.save();
@@ -56,7 +56,6 @@ describe('Employee', () => {
   });
 
   describe('Creating data', () => {
-
     it('should insert new document with "insertOne" method', async () => {
       const employee = new Employee({ firstName: 'FirstName #1', lastName: 'LastName #1', department: 'Department #1' });
       await employee.save();
